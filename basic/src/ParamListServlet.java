@@ -35,14 +35,14 @@ public class ParamListServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		Enumeration<String> names = request.getParameterNames();
-
 		while (names.hasMoreElements()) {
 			String name = names.nextElement();
 			String[] values = request.getParameterValues(name);
-			for(int i =0; i < values.length; i++) {
+			for (int i = 0; i < values.length; i++) {
 				out.println(name + "=" + values[i]);
 			}
 		}
+
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

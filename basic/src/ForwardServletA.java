@@ -1,7 +1,7 @@
 
-import java.io.IOException;
-import java.io.PrintWriter;
 
+import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class EchoServlet
+ * Servlet implementation class ForwardServletA
  */
-@WebServlet("/EchoServlet")
-public class EchoServlet extends HttpServlet {
+@WebServlet("/ForwardServletA")
+public class ForwardServletA extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EchoServlet() {
+    public ForwardServletA() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,12 +28,9 @@ public class EchoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String msg =request.getParameter("message");
-
-		response.setContentType("text/plain; charset=Windows-31J");
-		PrintWriter out = response.getWriter();
-		out.println("message=" + msg);
-
+		System.out.println("call ForwardServletA");
+		RequestDispatcher dispatcher ~ request.getRequestDispatcher("ForwardServletB");
+		dispathcer.forward(request,response);
 	}
 
 	/**
